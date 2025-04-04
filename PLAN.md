@@ -33,10 +33,31 @@
 ## 🧱 Folder Structure
 
 ```
-app/
-│
-├── page.tsx           ← main UI
-├── actions/
-│   └── translate.ts   ← server action for translation
-├── components/        ← ShadCN UI components
+📦src
+ ┣ 📂actions
+ ┃ ┗ 📜translate.actions.ts
+ ┣ 📂app
+ ┃ ┣ 📜favicon.ico
+ ┃ ┣ 📜globals.css
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
+ ┣ 📂components
+ ┃ ┣ 📂ui
+ ┃ ┃ ┣ 📜avatar.tsx
+ ┃ ┃ ┣ 📜badge.tsx
+ ┃ ┃ ┣ 📜button.tsx
+ ┃ ┃ ┣ 📜card.tsx
+ ┃ ┃ ┣ 📜select.tsx
+ ┃ ┃ ┣ 📜skeleton.tsx
+ ┃ ┃ ┣ 📜sonner.tsx
+ ┃ ┃ ┣ 📜switch.tsx
+ ┃ ┃ ┣ 📜textarea.tsx
+ ┃ ┃ ┗ 📜tooltip.tsx
+ ┃ ┗ 📜logo.tsx
+ ┣ 📂lib
+ ┃ ┗ 📜utils.ts
+ ┣ 📂prompts
+ ┃ ┗ 📜translate.prompts.ts
+ ┗ 📂types
+   ┗ 📜translate.types.ts
 ```
