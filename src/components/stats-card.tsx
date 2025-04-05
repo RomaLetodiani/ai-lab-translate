@@ -11,12 +11,17 @@ interface StatsCardProps {
     input: number;
     output: number;
   };
+  wordCount: {
+    input: number;
+    output: number;
+  };
 }
 
 export function StatsCard({
   totalTranslations,
   lastTranslationTime,
   characterCount,
+  wordCount,
 }: StatsCardProps) {
   const { t } = useLanguage();
   const getTimeSince = (timestamp?: number) => {
@@ -67,6 +72,20 @@ export function StatsCard({
               <div>
                 <div className="text-xs text-muted-foreground">{t("output")}</div>
                 <div className="font-medium">{characterCount.output}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border rounded-md p-3 col-span-2">
+            <div className="text-xs text-muted-foreground mb-1">{t("wordsCount")}</div>
+            <div className="flex justify-between mt-2">
+              <div>
+                <div className="text-xs text-muted-foreground">{t("input")}</div>
+                <div className="font-medium">{wordCount.input}</div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">{t("output")}</div>
+                <div className="font-medium">{wordCount.output}</div>
               </div>
             </div>
           </div>

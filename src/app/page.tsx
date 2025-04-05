@@ -27,6 +27,10 @@ const Home = () => {
       input: 0,
       output: 0,
     },
+    wordCount: {
+      input: 0,
+      output: 0,
+    },
   });
 
   // Load history from localStorage
@@ -53,6 +57,14 @@ const Home = () => {
     const totalCharsInput = historyItems.reduce((sum, item) => sum + item.input.length, 0);
     const totalCharsOutput = historyItems.reduce((sum, item) => sum + item.output.length, 0);
     const lastTime = historyItems.length > 0 ? historyItems[0].timestamp : undefined;
+    const totalWordsInput = historyItems.reduce(
+      (sum, item) => sum + item.input.split(" ").length,
+      0
+    );
+    const totalWordsOutput = historyItems.reduce(
+      (sum, item) => sum + item.output.split(" ").length,
+      0
+    );
 
     setStats({
       totalTranslations: historyItems.length,
@@ -60,6 +72,10 @@ const Home = () => {
       characterCount: {
         input: totalCharsInput,
         output: totalCharsOutput,
+      },
+      wordCount: {
+        input: totalWordsInput,
+        output: totalWordsOutput,
       },
     });
   };
