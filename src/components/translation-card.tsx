@@ -83,7 +83,7 @@ export function TranslationCard({
           />
           {output && (
             <TooltipProvider>
-              <Tooltip open={copied} onOpenChange={setCopied}>
+              <Tooltip open={copied} onOpenChange={() => setCopied(false)}>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
