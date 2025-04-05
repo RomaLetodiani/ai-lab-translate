@@ -133,10 +133,10 @@ const Home = () => {
   }
 
   return (
-    <main className="flex-1 w-full max-w-5xl mx-auto py-10 px-8 space-y-6">
+    <main className="flex-1 w-full max-w-5xl mx-auto py-8 px-6">
       <h1 className="text-3xl font-bold">Geo↔Eng Translator</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
         <div className="md:col-span-2">
           <TranslationCard
             input={input}

@@ -45,21 +45,6 @@ export function StatsCard({
         <CardDescription>Your translation activity</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="flex justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8">
-              <AvatarFallback>{getLanguageName(sourceLang).charAt(0)}</AvatarFallback>
-            </Avatar>
-            <div className="text-sm font-medium">{getLanguageName(sourceLang)}</div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-sm font-medium">{getLanguageName(targetLang)}</div>
-            <Avatar className="h-8 w-8">
-              <AvatarFallback>{getLanguageName(targetLang).charAt(0)}</AvatarFallback>
-            </Avatar>
-          </div>
-        </div>
-
         <div className="grid grid-cols-2 gap-4">
           <div className="border rounded-md p-3 flex flex-col">
             <div className="flex items-center gap-2 text-muted-foreground mb-1">
