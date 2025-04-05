@@ -6,9 +6,9 @@ export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 export const getLanguageName = (language: Language): LanguageName => {
   switch (language) {
-    case "en":
+    case Language.EN:
       return "English";
-    case "ka":
+    case Language.KA:
       return "Georgian";
   }
 };

@@ -29,7 +29,7 @@ export function TranslationCard({
   onSourceLangChange,
   isLoading = false,
 }: TranslationCardProps) {
-  const targetLang = sourceLang === "ka" ? "en" : "ka";
+  const targetLang = sourceLang === Language.KA ? Language.EN : Language.KA;
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {

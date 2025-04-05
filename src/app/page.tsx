@@ -5,21 +5,15 @@ import { TranslationCard } from "@/components/translation-card";
 import { HistoryList } from "@/components/history-list";
 import { StatsCard } from "@/components/stats-card";
 import { translate } from "@/actions/translate.actions";
-import { Language } from "@/types/translate.types";
+import { Language, TranslationHistoryItem } from "@/types/translate.types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 
-interface TranslationHistoryItem {
-  input: string;
-  output: string;
-  timestamp: number;
-}
-
 const Home = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [sourceLang, setSourceLang] = useState<Language>("ka");
+  const [sourceLang, setSourceLang] = useState<Language>(Language.KA);
   const [history, setHistory] = useState<TranslationHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -75,7 +69,7 @@ const Home = () => {
     setIsLoading(true);
     try {
       const from = sourceLang;
-      const to = sourceLang === "ka" ? "en" : "ka";
+      const to = sourceLang === Language.KA ? Language.EN : Language.KA;
 
       const result = await translate({ text: input, sourceLanguage: from, targetLanguage: to });
       setOutput(result || "");
@@ -85,6 +79,8 @@ const Home = () => {
         input,
         output: result,
         timestamp: Date.now(),
+        sourceLang,
+        targetLang: to,
       };
 
       // Update history (max 10 items)
@@ -105,7 +101,7 @@ const Home = () => {
   };
 
   const handleSourceLangChange = () => {
-    setSourceLang(sourceLang === "ka" ? "en" : "ka");
+    setSourceLang(sourceLang === Language.KA ? Language.EN : Language.KA);
     setInput("");
     setOutput("");
   };
@@ -134,9 +130,7 @@ const Home = () => {
 
   return (
     <main className="flex-1 w-full max-w-5xl mx-auto py-8 px-6">
-      <h1 className="text-3xl font-bold">Geo↔Eng Translator</h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div className="md:col-span-2">
           <TranslationCard
             input={input}
@@ -150,12 +144,7 @@ const Home = () => {
         </div>
 
         <div className="space-y-6">
-          <StatsCard
-            totalTranslations={stats.totalTranslations}
-            sourceLang={sourceLang}
-            lastTranslationTime={stats.lastTranslationTime}
-            characterCount={stats.characterCount}
-          />
+          <StatsCard {...stats} />
         </div>
       </div>
 
@@ -163,7 +152,6 @@ const Home = () => {
         history={history}
         onHistoryItemSelect={handleHistoryItemSelect}
         onClearHistory={handleClearHistory}
-        sourceLang={sourceLang}
       />
 
       <Toaster position="bottom-right" />

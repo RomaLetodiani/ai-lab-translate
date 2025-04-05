@@ -1,14 +1,10 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { getLanguageName } from "@/lib/utils";
-import { Language } from "@/types/translate.types";
 import { BarChart2, BookOpen, Clock } from "lucide-react";
 
 interface StatsCardProps {
   totalTranslations: number;
-  sourceLang: Language;
   lastTranslationTime?: number;
   characterCount: {
     input: number;
@@ -18,12 +14,9 @@ interface StatsCardProps {
 
 export function StatsCard({
   totalTranslations,
-  sourceLang,
   lastTranslationTime,
   characterCount,
 }: StatsCardProps) {
-  const targetLang = sourceLang === "ka" ? "en" : "ka";
-
   const getTimeSince = (timestamp?: number) => {
     if (!timestamp) return "Never";
 

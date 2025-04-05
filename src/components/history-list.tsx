@@ -6,27 +6,15 @@ import { useState } from "react";
 import { getLanguageName } from "@/lib/utils";
 import { ArrowUpCircle, RotateCcw, Trash2 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { Language } from "@/types/translate.types";
-
-interface HistoryItem {
-  input: string;
-  output: string;
-  timestamp: number;
-}
+import { TranslationHistoryItem } from "@/types/translate.types";
 
 interface HistoryListProps {
-  history: HistoryItem[];
-  onHistoryItemSelect: (item: HistoryItem) => void;
+  history: TranslationHistoryItem[];
+  onHistoryItemSelect: (item: TranslationHistoryItem) => void;
   onClearHistory: () => void;
-  sourceLang: Language;
 }
 
-export function HistoryList({
-  history,
-  onHistoryItemSelect,
-  onClearHistory,
-  sourceLang,
-}: HistoryListProps) {
+export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: HistoryListProps) {
   const [collapsed, setCollapsed] = useState(true);
   const displayItems = collapsed ? history.slice(0, 3) : history;
 
@@ -70,7 +58,7 @@ export function HistoryList({
           >
             <div className="flex justify-between items-start mb-1">
               <span className="font-medium">
-                {getLanguageName(sourceLang)} → {getLanguageName(sourceLang === "ka" ? "en" : "ka")}
+                {getLanguageName(item.sourceLang)} → {getLanguageName(item.targetLang)}
               </span>
               <Button
                 variant="ghost"

@@ -1,4 +1,7 @@
-export type Language = "en" | "ka";
+export enum Language {
+  EN = "EN",
+  KA = "KA",
+}
 
 export type TranslateProps = {
   text: string;
@@ -7,3 +10,11 @@ export type TranslateProps = {
 };
 
 export type LanguageName = "English" | "Georgian";
+
+export type TranslationHistoryItem = {
+  input: string;
+  output: string;
+  timestamp: number;
+  sourceLang: Language;
+  targetLang: Language;
+};
