@@ -9,6 +9,7 @@ import { Language, TranslationHistoryItem } from "@/types/translate.types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
+import { LangToggler } from "@/components/lang-toggler";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -156,6 +157,10 @@ const Home = () => {
       />
 
       <Toaster position="bottom-right" />
+
+      <div className="absolute top-5 right-5">
+        <LangToggler />
+      </div>
     </main>
   );
 };

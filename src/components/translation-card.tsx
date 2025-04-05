@@ -9,6 +9,7 @@ import { Language } from "@/types/translate.types";
 import { getLanguageName } from "@/lib/utils";
 import { ArrowRightLeft, Copy, CornerRightDown } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/lang.context";
 
 interface TranslationCardProps {
   input: string;
@@ -29,6 +30,7 @@ export function TranslationCard({
   onSourceLangChange,
   isLoading = false,
 }: TranslationCardProps) {
+  const { t } = useLanguage();
   const targetLang = sourceLang === Language.KA ? Language.EN : Language.KA;
   const [copied, setCopied] = useState(false);
 
@@ -43,7 +45,7 @@ export function TranslationCard({
     <Card className="w-full">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
-          <CardTitle className="text-xl">Translator</CardTitle>
+          <CardTitle className="text-xl">{t("translator")}</CardTitle>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -53,16 +55,17 @@ export function TranslationCard({
               </TooltipTrigger>
               <TooltipContent>
                 <p>
-                  Switch languages: {getLanguageName(sourceLang)} ↔ {getLanguageName(targetLang)}
+                  {t("switchLanguages")}: {t(getLanguageName(sourceLang))} ↔{" "}
+                  {t(getLanguageName(targetLang))}
                 </p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
         <div className="flex gap-2 mt-2">
-          <Badge variant="secondary">{getLanguageName(sourceLang)}</Badge>
+          <Badge variant="secondary">{t(getLanguageName(sourceLang))}</Badge>
           <CornerRightDown className="h-4 w-4 text-muted-foreground" />
-          <Badge>{getLanguageName(targetLang)}</Badge>
+          <Badge>{t(getLanguageName(targetLang))}</Badge>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -70,7 +73,7 @@ export function TranslationCard({
           <Textarea
             value={input}
             onChange={(e) => onInputChange(e.target.value)}
-            placeholder={`Enter text in ${getLanguageName(sourceLang)}`}
+            placeholder={`${t("enterTextIn")} ${t(getLanguageName(sourceLang))}`}
             className="min-h-[120px] resize-none"
           />
         </div>
@@ -78,7 +81,7 @@ export function TranslationCard({
           <Textarea
             value={output}
             readOnly
-            placeholder="Translation will appear here"
+            placeholder={t("translationWillAppearHere")}
             className="min-h-[120px] resize-none bg-muted/50 pr-8"
           />
           {output && (
@@ -95,7 +98,7 @@ export function TranslationCard({
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{copied ? "Copied!" : "Copy"}</p>
+                  <p>{copied ? t("copied") : t("copy")}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -104,7 +107,7 @@ export function TranslationCard({
       </CardContent>
       <CardFooter>
         <Button onClick={onTranslate} className="w-full" disabled={!input.trim() || isLoading}>
-          {isLoading ? "Translating..." : "Translate"}
+          {isLoading ? t("translating") : t("translate")}
         </Button>
       </CardFooter>
     </Card>

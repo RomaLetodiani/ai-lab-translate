@@ -7,6 +7,7 @@ import { getLanguageName } from "@/lib/utils";
 import { ArrowUpCircle, RotateCcw, Trash2 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { TranslationHistoryItem } from "@/types/translate.types";
+import { useLanguage } from "@/contexts/lang.context";
 
 interface HistoryListProps {
   history: TranslationHistoryItem[];
@@ -15,6 +16,7 @@ interface HistoryListProps {
 }
 
 export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: HistoryListProps) {
+  const { t } = useLanguage();
   const [collapsed, setCollapsed] = useState(true);
   const displayItems = collapsed ? history.slice(0, 3) : history;
 
@@ -24,12 +26,12 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
             <RotateCcw className="h-4 w-4" />
-            Translation History
+            {t("translationHistory")}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground text-center py-4">
-            No translation history yet
+            {t("noTranslationsHistory")}
           </p>
         </CardContent>
       </Card>
@@ -42,7 +44,7 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
         <div className="flex justify-between items-center">
           <CardTitle className="text-lg flex items-center gap-2">
             <RotateCcw className="h-4 w-4" />
-            Translation History
+            {t("translationHistory")}
           </CardTitle>
           <Button variant="ghost" size="icon" onClick={onClearHistory}>
             <Trash2 className="h-4 w-4 text-muted-foreground" />
@@ -58,7 +60,7 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
           >
             <div className="flex justify-between items-start mb-1">
               <span className="font-medium">
-                {getLanguageName(item.sourceLang)} → {getLanguageName(item.targetLang)}
+                {t(getLanguageName(item.sourceLang))} → {t(getLanguageName(item.targetLang))}
               </span>
               <Button
                 variant="ghost"
@@ -73,10 +75,10 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
               </Button>
             </div>
             <div className="line-clamp-1 text-muted-foreground mb-1">
-              <span className="font-medium text-foreground">Input:</span> {item.input}
+              <span className="font-medium text-foreground">{t("input")}:</span> {item.input}
             </div>
             <div className="line-clamp-1 text-muted-foreground">
-              <span className="font-medium text-foreground">Output:</span> {item.output}
+              <span className="font-medium text-foreground">{t("output")}:</span> {item.output}
             </div>
             <div className="text-xs text-muted-foreground mt-1">
               {new Date(item.timestamp).toLocaleString()}
@@ -93,7 +95,7 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
                 onCheckedChange={(checked) => setCollapsed(!checked)}
               />
               <label htmlFor="show-all" className="text-sm cursor-pointer">
-                Show all ({history.length})
+                {t("showAll")} ({history.length})
               </label>
             </div>
           </div>
