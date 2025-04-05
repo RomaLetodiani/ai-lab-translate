@@ -41,6 +41,8 @@
  ┃ ┣ 📜globals.css
  ┃ ┣ 📜layout.tsx
  ┃ ┗ 📜page.tsx
+ ┣ 📂assets
+ ┃ ┗ 📜socials.svgs.tsx
  ┣ 📂components
  ┃ ┣ 📂ui
  ┃ ┃ ┣ 📜avatar.tsx
@@ -54,7 +56,11 @@
  ┃ ┃ ┣ 📜textarea.tsx
  ┃ ┃ ┗ 📜tooltip.tsx
  ┃ ┗ 📜logo.tsx
+ ┣ 📂layout
+ ┃ ┣ 📜footer.tsx
+ ┃ ┗ 📜header.tsx
  ┣ 📂lib
+ ┃ ┣ 📜socials.const.tsx
  ┃ ┗ 📜utils.ts
  ┣ 📂prompts
  ┃ ┗ 📜translate.prompts.ts
