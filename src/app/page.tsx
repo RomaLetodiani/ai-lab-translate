@@ -109,6 +109,7 @@ const Home = () => {
   const handleHistoryItemSelect = (item: TranslationHistoryItem) => {
     setInput(item.input);
     setOutput(item.output);
+    setSourceLang(item.sourceLang);
   };
 
   const handleClearHistory = () => {
