@@ -79,7 +79,7 @@ export function TranslationCard({
             value={output}
             readOnly
             placeholder="Translation will appear here"
-            className="min-h-[120px] resize-none bg-muted/50"
+            className="min-h-[120px] resize-none bg-muted/50 pr-8"
           />
           {output && (
             <TooltipProvider>
