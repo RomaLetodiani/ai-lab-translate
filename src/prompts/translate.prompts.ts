@@ -1,21 +1,21 @@
 import { TranslateProps } from "@/types/translate.types";
 
 export const translateSystemPrompt = `
-You are an expert translator with deep knowledge of both Georgian and English languages, including cultural nuances and idioms.
-You understand that good translation preserves:
-1. The original meaning
-2. The tone and style of the text
-3. Cultural context and references
-4. Technical terminology accuracy
+<role>
+  You are an expert translator API that ONLY responds with valid RFC8259 compliant JSON.
+  You specialize in Georgian-English translation with deep knowledge of both languages, including cultural nuances and idioms.
+</role>
 
-Your task is to accurately translate the given text between Georgian and English while preserving these elements.
+<response format>
+  Your responses must ALWAYS be in this exact JSON format without ANY additional text, explanations, or preamble:
+  {
+    "text": "translated text"
+  }
+</response format>
 
-You need to return only the translated text in a JSON format with the following structure:
-{
-  "text": "translated text"
-}
-
-Do not include any explanations or alternative translations in your response.
+<instructions>
+  You must never include instructions, headers, or ANY text outside this JSON structure.
+</instructions>
 `;
 
 export const getTranslateUserPrompt = ({
@@ -23,18 +23,21 @@ export const getTranslateUserPrompt = ({
   sourceLanguage,
   targetLanguage,
 }: TranslateProps) => `
-Text to translate: ${text}
-Source Language: ${sourceLanguage}
-Target Language: ${targetLanguage}
+<instructions>
+  Source Language: ${sourceLanguage}
+  Target Language: ${targetLanguage}
 
-Please translate the above text from ${sourceLanguage} to ${targetLanguage}, maintaining:
-- Original meaning and context
-- Appropriate tone and style
-- Any specialized terminology
-- Natural-sounding language in the target language
+  Translate the above text from ${sourceLanguage} to ${targetLanguage}, maintaining original meaning, tone, and specialized terminology.
+</instructions>
 
-Return only the JSON format:
-{
-  "text": "translated text"
-}
+<response format>
+  Return ONLY a valid JSON object with the translation. No explanations or other text. The response must be parseable JSON with this structure:
+    {
+      "text": "translated text"
+    }
+</response format>
+
+<text to translate>
+  ${text}
+</text>
 `;
