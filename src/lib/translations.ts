@@ -40,6 +40,14 @@ export const translations = {
     en: "Georgian",
     ge: "ქართული",
   },
+  EnglishPlaceholder: {
+    en: "Enter text in English",
+    ge: "შეიყვანე ინგლისური ტექსტი",
+  },
+  GeorgianPlaceholder: {
+    en: "Enter text in Georgian",
+    ge: "შეიყვანე ქართული ტექსტი",
+  },
 
   translationsStats: {
     en: "Translations Stats",
@@ -114,11 +122,6 @@ export const translations = {
   translate: {
     en: "Translate",
     ge: "თარგმანი",
-  },
-
-  enterTextIn: {
-    en: "Enter text in",
-    ge: "შეიყვანე ტექსტი",
   },
 
   translationWillAppearHere: {

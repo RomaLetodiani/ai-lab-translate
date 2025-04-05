@@ -73,8 +73,9 @@ export function TranslationCard({
           <Textarea
             value={input}
             onChange={(e) => onInputChange(e.target.value)}
-            placeholder={`${t("enterTextIn")} ${t(getLanguageName(sourceLang))}`}
+            placeholder={t(`${getLanguageName(sourceLang)}Placeholder`)}
             className="min-h-[120px] resize-none"
+            maxLength={1000}
           />
         </div>
         <div className="relative">
