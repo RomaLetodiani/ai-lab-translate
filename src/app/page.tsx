@@ -7,7 +7,7 @@ import { translate } from "@/actions/translate.actions";
 import { Language } from "@/types/translate.types";
 import { getLanguageName } from "@/lib/utils";
 
-export default function Home() {
+const Home = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [sourceLang, setSourceLang] = useState<Language>("ka");
@@ -31,11 +31,11 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-xl mx-auto py-10 space-y-4">
-      <div className="flex justify-between items-center">
+    <main className="flex-1 w-full max-w-xl mx-auto py-10 px-8 space-y-4">
+      <div className="flex justify-between gap-5 flex-wrap items-center">
         <h1 className="text-2xl font-bold">Geo↔Eng Translator</h1>
         <Button onClick={() => setSourceLang(sourceLang === "ka" ? "en" : "ka")}>
-          {sourceLang} → {sourceLang === "ka" ? "en" : "ka"}
+          {getLanguageName(sourceLang)} → {getLanguageName(sourceLang === "ka" ? "en" : "ka")}
         </Button>
       </div>
 
@@ -63,4 +63,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Home;

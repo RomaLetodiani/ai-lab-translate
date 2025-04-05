@@ -24,7 +24,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
     <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-1">{children}</main>
+        {children}
         <Footer />
       </div>
     </body>
