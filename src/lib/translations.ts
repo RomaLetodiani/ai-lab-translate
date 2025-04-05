@@ -111,7 +111,7 @@ export const translations = {
 
   never: {
     en: "Never",
-    ge: "",
+    ge: " ",
   },
 
   translating: {
