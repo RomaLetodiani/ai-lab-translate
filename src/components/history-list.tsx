@@ -46,9 +46,25 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
             <RotateCcw className="h-4 w-4" />
             {t("translationHistory")}
           </CardTitle>
-          <Button variant="ghost" size="icon" onClick={onClearHistory}>
-            <Trash2 className="h-4 w-4 text-muted-foreground" />
-          </Button>
+          <div className="flex items-center justify-center gap-2">
+            {history.length > 3 && (
+              <div className="flex justify-center pt-2">
+                <div className="flex items-center space-x-2">
+                  <label htmlFor="show-all" className="text-sm cursor-pointer">
+                    {t("showAll")} ({history.length})
+                  </label>
+                  <Switch
+                    id="show-all"
+                    checked={!collapsed}
+                    onCheckedChange={(checked) => setCollapsed(!checked)}
+                  />
+                </div>
+              </div>
+            )}
+            <Button variant="ghost" size="icon" onClick={onClearHistory}>
+              <Trash2 className="h-4 w-4 text-muted-foreground" />
+            </Button>
+          </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-2">
@@ -85,21 +101,6 @@ export function HistoryList({ history, onHistoryItemSelect, onClearHistory }: Hi
             </div>
           </div>
         ))}
-
-        {history.length > 3 && (
-          <div className="flex justify-center pt-2">
-            <div className="flex items-center space-x-2">
-              <Switch
-                id="show-all"
-                checked={!collapsed}
-                onCheckedChange={(checked) => setCollapsed(!checked)}
-              />
-              <label htmlFor="show-all" className="text-sm cursor-pointer">
-                {t("showAll")} ({history.length})
-              </label>
-            </div>
-          </div>
-        )}
       </CardContent>
     </Card>
   );

@@ -131,7 +131,7 @@ export const translations = {
 
   showAll: {
     en: "Show all",
-    ge: "ყველა ნაჩვენები",
+    ge: "ყველას ნაჩვენები",
   },
 
   switchLanguages: {
