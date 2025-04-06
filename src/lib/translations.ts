@@ -148,4 +148,19 @@ export const translations = {
     en: "Output",
     ge: "თარგმნილი",
   },
+
+  translationCompleted: {
+    en: "Translation completed!",
+    ge: "თარგმანი დასრულებულია!",
+  },
+
+  translationFailed: {
+    en: "Translation failed. Please try again.",
+    ge: "თარგმანი ვერ მოხდება. გთხოვთ სცადოთ თავიდან.",
+  },
+
+  translationHistoryCleared: {
+    en: "Translation history cleared",
+    ge: "თარგმანის ისტორია გასუფთავებულია",
+  },
 };

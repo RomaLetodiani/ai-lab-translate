@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { LangToggler } from "@/components/lang-toggler";
+import { useLanguage } from "@/contexts/lang.context";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -18,6 +19,8 @@ const Home = () => {
   const [history, setHistory] = useState<TranslationHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+
+  const { t } = useLanguage();
 
   // Stats data
   const [stats, setStats] = useState({
@@ -108,10 +111,10 @@ const Home = () => {
       // Update stats
       updateStatsFromHistory(newHistory);
 
-      toast.success("Translation completed!");
+      toast.success(t("translationCompleted"));
     } catch (error) {
       console.error("Translation error:", error);
-      toast.error("Translation failed. Please try again.");
+      toast.error(t("translationFailed"));
     } finally {
       setIsLoading(false);
     }
@@ -133,7 +136,7 @@ const Home = () => {
     setHistory([]);
     localStorage.removeItem("translationHistory");
     updateStatsFromHistory([]);
-    toast.info("Translation history cleared");
+    toast.info(t("translationHistoryCleared"));
   };
 
   if (!isInitialized) {
