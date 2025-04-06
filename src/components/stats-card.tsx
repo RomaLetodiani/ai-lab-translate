@@ -25,7 +25,7 @@ export function StatsCard({
 }: StatsCardProps) {
   const { t } = useLanguage();
   const getTimeSince = (timestamp?: number) => {
-    if (!timestamp) return t("never");
+    if (!timestamp) return "-";
 
     const seconds = Math.floor((Date.now() - timestamp) / 1000);
 

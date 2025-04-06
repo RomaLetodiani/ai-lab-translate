@@ -109,11 +109,6 @@ export const translations = {
     ge: "დღის წინ",
   },
 
-  never: {
-    en: "Never",
-    ge: " ",
-  },
-
   translating: {
     en: "Translating...",
     ge: "მიმდინარეობს თარგმნა...",
