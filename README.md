@@ -29,7 +29,7 @@ A modern Georgian-English translation application built with Next.js and powered
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/ai-lab-translate.git
+git clone https://github.com/RomaLetodiani/ai-lab-translate
 cd ai-lab-translate
 ```
 
