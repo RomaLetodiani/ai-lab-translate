@@ -60,16 +60,16 @@ npm run dev
 ```
 📦src
  ┣ 📂actions
- ┃ ┗ 📜translate.actions.ts    # Server actions for translation
+ ┃ ┗ 📜translate.actions.ts
  ┣ 📂app
  ┃ ┣ 📜favicon.ico
- ┃ ┣ 📜globals.css            # Global styles
- ┃ ┣ 📜layout.tsx             # Root layout
- ┃ ┗ 📜page.tsx               # Home page
+ ┃ ┣ 📜globals.css
+ ┃ ┣ 📜layout.tsx
+ ┃ ┗ 📜page.tsx
  ┣ 📂assets
- ┃ ┗ 📜socials.svgs.tsx       # Social media icons
+ ┃ ┗ 📜socials.svgs.tsx
  ┣ 📂components
- ┃ ┣ 📂ui                     # ShadCN UI components
+ ┃ ┣ 📂ui
  ┃ ┃ ┣ 📜avatar.tsx
  ┃ ┃ ┣ 📜badge.tsx
  ┃ ┃ ┣ 📜button.tsx
@@ -80,17 +80,27 @@ npm run dev
  ┃ ┃ ┣ 📜switch.tsx
  ┃ ┃ ┣ 📜textarea.tsx
  ┃ ┃ ┗ 📜tooltip.tsx
- ┃ ┗ 📜logo.tsx               # Application logo
+ ┃ ┣ 📜history-list.tsx
+ ┃ ┣ 📜lang-toggler.tsx
+ ┃ ┣ 📜logo.tsx
+ ┃ ┣ 📜stats-card.tsx
+ ┃ ┗ 📜translation-card.tsx
+ ┣ 📂contexts
+ ┃ ┗ 📜lang.context.tsx
  ┣ 📂layout
- ┃ ┣ 📜footer.tsx             # Footer component
- ┃ ┗ 📜header.tsx             # Header component
+ ┃ ┣ 📜footer.tsx
+ ┃ ┗ 📜header.tsx
  ┣ 📂lib
- ┃ ┣ 📜socials.const.tsx      # Social media constants
- ┃ ┗ 📜utils.ts               # Utility functions
+ ┃ ┣ 📜socials.const.tsx
+ ┃ ┣ 📜translations.ts
+ ┃ ┗ 📜utils.ts
  ┣ 📂prompts
- ┃ ┗ 📜translate.prompts.ts   # AI translation prompts
- ┗ 📂types
-   ┗ 📜translate.types.ts     # TypeScript types
+ ┃ ┗ 📜translate.prompts.ts
+ ┣ 📂types
+ ┃ ┣ 📜lang.type.ts
+ ┃ ┗ 📜translate.types.ts
+ ┗ 📂workers
+   ┗ 📜service-worker-registration.tsx
 ```
 
 ## 🎯 Key Components
