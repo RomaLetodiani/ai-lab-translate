@@ -96,11 +96,9 @@ npm run dev
  ┃ ┗ 📜utils.ts
  ┣ 📂prompts
  ┃ ┗ 📜translate.prompts.ts
- ┣ 📂types
+ ┗ 📂types
  ┃ ┣ 📜lang.type.ts
- ┃ ┗ 📜translate.types.ts
- ┗ 📂workers
-   ┗ 📜service-worker-registration.tsx
+   ┗ 📜translate.types.ts
 ```
 
 ## 🎯 Key Components
