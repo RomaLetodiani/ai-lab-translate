@@ -4,7 +4,6 @@ import "./globals.css";
 import { Footer } from "@/layout/footer";
 import { Header } from "@/layout/header";
 import { LanguageProvider } from "@/contexts/lang.context";
-import { ServiceWorkerRegistration } from "@/workers/service-worker-registration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,16 +27,6 @@ export const metadata: Metadata = {
     template: APP_TITLE_TEMPLATE,
   },
   description: APP_DESCRIPTION,
-  manifest: "/manifest.json",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: APP_DEFAULT_TITLE,
-    // startUpImage: [],
-  },
-  formatDetection: {
-    telephone: false,
-  },
   openGraph: {
     type: "website",
     siteName: APP_NAME,
@@ -64,7 +53,6 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
   <html lang="en">
     <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
-      <ServiceWorkerRegistration />
       <div className="flex flex-col min-h-screen">
         <LanguageProvider>
           <Header />
